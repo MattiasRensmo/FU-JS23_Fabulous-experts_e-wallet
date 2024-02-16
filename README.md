@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+✅ React router - _Mattias + Sandra_
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ett object där vi sparar kortdata i local storage - _MATTIAS_
 
-Currently, two official plugins are available:
+## KOMPONENTER
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Kort-komponent - ta in text o färg o logga via props (alltså via kort-object) _MATTIAS_
 
-## Expanding the ESLint configuration
+### FRONT PAGE
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Active-card-komponent (där det aktiva kortet ligger) _MATTIAS_
 
-- Configure the top-level `parserOptions` property like this:
+--- Ta bort kort-text som tar bort det aktiva kortet. _YOSEF_
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Card stack (där alla kort vi har läggs på varandra på ett tufft sätt)
+  Funktionalitet --- kunna klicka på ett kort för att göra det aktivt - o det nuvarande aktiva blir då inaktivt. _YOSEF_
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Knapp - återanvända?
+
+- En med funktionaliteten att den byter till ny sida "/addcard" _SANDRA_
+
+### /ADDCARD
+
+- Formulär lägg till kort (card number, name, valid, ccv) - _MARCUS_
+- Vendor-komponenten i formuläret - _SANDRA_
+
+- "Add Card" ska hämta data ur formuläret - validera den - och spara den till local storage - och byta tillbaka till förstasidan. - _SANDRA_
+
+- På "/addcard" --- Ngn liten knapp för att avbryta och inte lägga till card _MARCUS_
