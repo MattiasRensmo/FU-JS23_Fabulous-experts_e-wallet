@@ -1,13 +1,26 @@
-import { useState } from 'react'
-
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom'
 import './App.css'
+import AddCard from './pages/AddCard'
+import Home from './pages/Home'
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path="/" element={<Home />} />
+      <Route path="/addcard" element={<AddCard />} />
+    </Route>
+  )
+)
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>app</h1>
+      <RouterProvider router={router} />
     </>
   )
 }
