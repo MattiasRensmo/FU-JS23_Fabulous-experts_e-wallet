@@ -3,7 +3,6 @@ interface CreditCard {
   holderName: string
   validYear: number
   validMonth: number
-  color: string
-  logo: string
+  vendor: 'bitcoin' | 'chain' | 'evil' | 'ninja' | undefined
   active: boolean
 }

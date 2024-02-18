@@ -1,4 +1,81 @@
+@use './../../sass/abstracts/' as *;
+
 .card {
-  border: 2px solid yellowgreen;
+  max-width: fit-content;
+  // border: 2px solid yellowgreen;
+  border-radius: 0.5rem;
   padding: 1rem;
+  margin: 1rem;
+  background: $grey;
+  color: #000;
+  text-transform: uppercase;
+  box-shadow: (0px 0px 16px rgba(0, 0, 0, 0.426));
+
+  // TODO: Bevel effect
+  // text-shadow: 0.5px 0.5px rgba(255, 255, 255, 0.536), -0.5px -0.5px rgba(0, 0, 0, 0.548);
+
+  //VENDORS
+  &--bitcoin {
+    background: $yellow;
+    color: #000;
+  }
+  &--chain {
+    background: $purple;
+    color: #000;
+  }
+  &--evil {
+    background: $red;
+    color: #fff;
+  }
+
+  &--ninja {
+    background: $black;
+    color: #fff;
+  }
+
+  //LAYOUT
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    &__logo {
+      margin-top: 0.8rem;
+      opacity: 0.8;
+    }
+  }
+  &__num {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+  &__btm {
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+      &__heading {
+        margin: 0;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+      &__text {
+        margin: 0.2em 0;
+        font-size: 18px;
+      }
+
+      &--right {
+        text-align: right;
+      }
+    }
+
+    &__heading {
+      margin: 0;
+      font-size: 12px;
+    }
+    &__text {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
 }

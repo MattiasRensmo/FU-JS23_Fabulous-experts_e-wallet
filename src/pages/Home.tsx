@@ -7,8 +7,7 @@ const cardTest: CreditCard = {
   holderName: 'Test Testsson',
   validYear: 24,
   validMonth: 2,
-  color: 'blue',
-  logo: '/logo/a.jpg',
+  vendor: 'evil',
   active: false,
 }
 
