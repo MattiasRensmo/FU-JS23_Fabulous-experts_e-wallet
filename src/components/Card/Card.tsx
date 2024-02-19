@@ -1,9 +1,6 @@
 import '../../interfaces/CreditCard'
 import chipBlip from './../../assets/img/chipBlip.svg'
-// import bitcoin from './../../assets/logo/bitcoin.svg'
-// import chain from './../../assets/logo/chain.svg'
-// import evil from './../../assets/logo/evil.svg'
-// import ninja from './../../assets/logo/ninja.svg'
+
 import './Card.scss'
 
 interface iProps {
