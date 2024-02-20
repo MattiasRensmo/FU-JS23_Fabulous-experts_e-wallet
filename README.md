@@ -1,10 +1,10 @@
 ✅ React router - _Mattias + Sandra_
 
-Ett object där vi sparar kortdata i local storage - _MATTIAS_
+✅ Ett object där vi sparar kortdata i local storage - _MATTIAS_
 
 ## KOMPONENTER
 
-Kort-komponent - ta in text o färg o logga via props (alltså via kort-object) _MATTIAS_
+✅ Kort-komponent - ta in text o färg o logga via props (alltså via kort-object) _MATTIAS_
 
 ### FRONT PAGE
 
