@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import ActiveContainer from '../components/ActiveContainer/ActiveContainer'
 import { Card } from '../components/Card/Card'
+
+import StackCard from '../components/StackCard/StackCard'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const cardTest: CreditCard = {
@@ -28,15 +30,10 @@ const Home = () => {
 
   return (
     <main>
-      <h1>E-WALLET</h1>
-
-      <ActiveContainer cards={cards} />
-
-      <button onClick={handleSetClick}>Skapa nytt kort i local storage med testdata</button>
-      <button onClick={() => setCards(() => getLocalItem())}>Hämta sparad data</button>
-
-      {/* <CardStack />  */}
-      {cards && cards.map((card) => <Card cardInfo={card} />)}
+      <h1>Home</h1>
+      <p>ACTIVE CARD</p>
+      <Card />
+      <StackCard />
     </main>
   )
 }
