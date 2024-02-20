@@ -1,14 +1,16 @@
+Allmän design för alla komponenter 🆕
+
 ✅ React router - _Mattias + Sandra_
 
-Ett object där vi sparar kortdata i local storage - _MATTIAS_
+✅ Ett object där vi sparar kortdata i local storage - _MATTIAS_
 
 ## KOMPONENTER
 
-Kort-komponent - ta in text o färg o logga via props (alltså via kort-object) _MATTIAS_
+✅ Kort-komponent - ta in text o färg o logga via props (alltså via kort-object) _MATTIAS_
 
 ### FRONT PAGE
 
-Active-card-komponent (där det aktiva kortet ligger) _MATTIAS_
+✅ Active-card-komponent (där det aktiva kortet ligger) _MATTIAS_
 
 --- Ta bort kort-text som tar bort det aktiva kortet. _YOSEF_
 
@@ -18,6 +20,7 @@ Active-card-komponent (där det aktiva kortet ligger) _MATTIAS_
 Knapp - återanvända?
 
 - En med funktionaliteten att den byter till ny sida "/addcard" _SANDRA_
+- (Skicka med state via `<Link />`? 🆕
 
 ### /ADDCARD
 
