@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ActiveContainer from '../components/ActiveContainer/ActiveContainer'
-import { Card } from '../components/Card/Card'
+// import { Card } from '../components/Card/Card'
 
 import StackCard from '../components/StackCard/StackCard'
 import { useLocalStorage } from '../hooks/useLocalStorage'
@@ -31,9 +31,9 @@ const Home = () => {
   return (
     <main>
       <h1>Home</h1>
-      <p>ACTIVE CARD</p>
-      <Card />
-      <StackCard />
+      <ActiveContainer cards={cards} />
+
+      <StackCard cards={cards} />
     </main>
   )
 }

@@ -1,42 +1,33 @@
-import React from 'react';
-import '../../interfaces/CreditCard';
+import React from 'react'
+import '../../interfaces/CreditCard'
 /* import  Card from './Card'; */
 
-import './../../sass/abstracts/StackCard.scss'
+import { Card } from '../Card/Card'
+import './StackCard.scss'
 
-
-interface StackCardProps {
-    text: string;
-    StackCard: string;
+interface Props {
+  cards: CreditCard[] | undefined
 }
 
-const StackCard: React.FC<StackCardProps> = (props) => {
-    const StackCard_Styles = (): React.CSSProperties => {
-        return {
-            marginBottom: '-12rem',
-        };
-    };
+const StackCard = ({ cards }: Props) => {
+  const StackCard_Styles = (): React.CSSProperties => {
+    return {
+      marginBottom: '-12rem',
+    }
+  }
 
-    return (
-        <div className="card-list-Wrap" style={StackCard_Styles()}>
-            {[1, 2, 3].map((index) => (
-                <div className="card-Stack" key={index}>
-                    Card {index}
-                </div>
-            ))}
+  if (!cards) return <></>
+  if (!cards.length) return <></>
+
+  return (
+    <div className="card-list-wrap">
+      {cards.map((card) => (
+        <div className="card-stack stacked-card">
+          <Card cardInfo={card}></Card>
         </div>
-    );
-};
+      ))}
+    </div>
+  )
+}
 
-export default StackCard;
-
-
-
-
-
-
-
-
-
-
-
+export default StackCard
