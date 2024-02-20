@@ -3,7 +3,7 @@ import chipBlip from './../../assets/img/chipBlip.svg'
 
 import './Card.scss'
 
-interface iProps {
+interface Props {
   cardInfo: CreditCard
 }
 
@@ -11,7 +11,7 @@ function groupByFour(num: number) {
   return (num.toString().match(/(\d{4})/g) || []).join(' ')
 }
 
-export const Card = ({ cardInfo }: iProps) => {
+export const Card = ({ cardInfo }: Props) => {
   return (
     <article className={cardInfo.vendor ? `card card--${cardInfo.vendor}` : `card`}>
       <section className="card__top">

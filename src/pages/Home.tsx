@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ActiveContainer from '../components/ActiveContainer/ActiveContainer'
 import { Card } from '../components/Card/Card'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
@@ -7,14 +8,14 @@ const cardTest: CreditCard = {
   holderName: 'Test Testsson',
   validYear: 24,
   validMonth: 2,
-  vendor: 'evil',
-  active: false,
+  vendor: 'bitcoin',
+  active: true,
 }
 
 const Home = () => {
   const { setLocalItem, getLocalItem } = useLocalStorage('cards')
 
-  //Initierar cards som undefined och fyller den sedan med data - pga får error om att försöka initiera för tidigt annars
+  //Initierar cards o försöker hämta data från local storage
   const [cards, setCards] = useState<CreditCard[] | undefined>(getLocalItem())
 
   const handleSetClick = () => {
@@ -27,13 +28,14 @@ const Home = () => {
 
   return (
     <main>
-      <h1>Home</h1>
-      <p>ACTIVE CARD</p>
-      {/* Active card-komponent med ta bort kort-text MATTIAS */}
-      <p>{cards && <Card cardInfo={cards[0]} />}</p>
+      <h1>E-WALLET</h1>
+
+      <ActiveContainer cards={cards} />
 
       <button onClick={handleSetClick}>Skapa nytt kort i local storage med testdata</button>
       <button onClick={() => setCards(() => getLocalItem())}>Hämta sparad data</button>
+
+      {/* <CardStack />  */}
       {cards && cards.map((card) => <Card cardInfo={card} />)}
     </main>
   )
