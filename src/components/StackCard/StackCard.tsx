@@ -28,3 +28,4 @@ const StackCard = ({ cards }: Props) => {
 
 
 export default StackCard
+
