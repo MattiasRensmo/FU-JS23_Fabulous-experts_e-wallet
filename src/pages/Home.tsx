@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import ActiveContainer from '../components/ActiveContainer/ActiveContainer'
 // import { Card } from '../components/Card/Card'
-
 import StackCard from '../components/StackCard/StackCard'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import DeleteCard from '../components/StackCard/DeleteCard'
@@ -29,21 +29,25 @@ const Home = () => {
 
     // Hämtar o visar det vi precis sparade.
     setCards(() => getLocalItem())
+
+  }
+  const deletecard = () => {
+    setLocalItem([])
+    setCards([])
   }
 
   
 
   return (
     <main>
-      <h1>Home</h1>
-     
-      <ActiveContainer cards={cards} />
-      <DeleteCard />
-
-
-      <StackCard cards={cards} />
+      <h1 className='title title__e-wallet' >E-WALLET</h1>
       <button onClick={handleSetClick}>Skapa nytt kort i local storage med testdata</button>
-    
+      <button onClick={deletecard}>delete</button>
+      <ActiveContainer cards={cards} />
+      <StackCard cards={cards} />
+      <button className='button button__new-card'>
+        <Link className='button__text' to="/addcard">ADD A NEW CARD</Link>
+      </button>
     </main>
     
   )
