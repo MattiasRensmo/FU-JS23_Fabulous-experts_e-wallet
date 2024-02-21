@@ -14,7 +14,7 @@ const ActiveContainer = ({ cards }: Props) => {
 
   return (
     <div className="activeContainer">
-      <p className="helperText">ACTIVE CARD</p>
+      <p className="helper-text helper-text__title">ACTIVE CARD</p>
       <Card cardInfo={activeCard[0]} />
     </div>
   )

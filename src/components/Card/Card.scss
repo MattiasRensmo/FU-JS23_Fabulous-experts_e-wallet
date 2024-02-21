@@ -80,10 +80,6 @@
   }
 }
 
-
-
-
-
 .card-list-container {
   display: flex;
   flex-direction: column;
@@ -103,4 +99,6 @@
   border-radius: 0.4rem;
 }
 
-
+.card-list-wrap {
+  height: 22rem;
+}
