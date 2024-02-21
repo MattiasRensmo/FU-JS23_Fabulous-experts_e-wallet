@@ -113,7 +113,7 @@ const Form: React.FC = () => {
           onChange={handleInputChange}
         />
       </label>
-      <label>
+      {/* <label>
         <span>Vendor:</span>
         <select
           name="vendor"
@@ -126,7 +126,7 @@ const Form: React.FC = () => {
           <option value="ninja">Ninja</option>
         </select>
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit">Submit</button> */}
     </form>
   )
 }
