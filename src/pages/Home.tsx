@@ -4,6 +4,9 @@ import ActiveContainer from '../components/ActiveContainer/ActiveContainer'
 
 import StackCard from '../components/StackCard/StackCard'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import DeleteCard from '../components/StackCard/DeleteCard'
+
+
 
 const cardTest: CreditCard = {
   cardNum: 1234000012340000,
@@ -28,13 +31,21 @@ const Home = () => {
     setCards(() => getLocalItem())
   }
 
+  
+
   return (
     <main>
       <h1>Home</h1>
+     
       <ActiveContainer cards={cards} />
+      <DeleteCard />
+
 
       <StackCard cards={cards} />
+      <button onClick={handleSetClick}>Skapa nytt kort i local storage med testdata</button>
+    
     </main>
+    
   )
 }
 

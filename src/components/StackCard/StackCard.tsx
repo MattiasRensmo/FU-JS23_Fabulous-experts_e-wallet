@@ -1,4 +1,4 @@
-import React from 'react'
+
 import '../../interfaces/CreditCard'
 /* import  Card from './Card'; */
 
@@ -10,12 +10,7 @@ interface Props {
 }
 
 const StackCard = ({ cards }: Props) => {
-  const StackCard_Styles = (): React.CSSProperties => {
-    return {
-      marginBottom: '-12rem',
-    }
-  }
-
+ 
   if (!cards) return <></>
   if (!cards.length) return <></>
 
@@ -29,5 +24,7 @@ const StackCard = ({ cards }: Props) => {
     </div>
   )
 }
+
+
 
 export default StackCard
