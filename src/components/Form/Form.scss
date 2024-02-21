@@ -1,0 +1,87 @@
+/* Form container */
+form {
+  display: grid;
+  grid-template-areas:
+    'number number'
+    'name name'
+    'expiry cvc'
+    'vendor vendor'
+    'submit submit';
+  gap: 15px;
+  width: auto;
+  max-width: 600px;
+  padding: 32px;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+/* Labels */
+label {
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  font-weight: 500;
+  text-align: left;
+}
+/* Label text */
+label > span {
+  font-size: 16px;
+}
+/* Input fields */
+input[type='text'],
+select {
+  padding: 12px;
+  margin-top: 4px;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+}
+/* Submit button */
+button[type='submit'] {
+  grid-area: submit;
+  padding: 16px 24px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button[type='submit']:hover {
+  background-color: #0056b3;
+}
+/* Assigning grid areas to labels */
+form > label:nth-child(1) {
+  grid-area: number;
+}
+form > label:nth-child(2) {
+  grid-area: name;
+}
+form > label:nth-child(3) {
+  grid-area: expiry;
+}
+form > label:nth-child(4) {
+  grid-area: cvc;
+}
+form > label:nth-child(5) {
+  grid-area: vendor;
+}
+// /* Vendor select box */
+// form label select[name="vendor"] {
+// -webkit-appearance: none;
+// -moz-appearance: none;
+// appearance: none;
+// padding-right: 30px;
+// background: url('data:image/svg+xml;utf8,<svg fill="black" height="24"
+// viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path
+// d="M7 10l5 5 5-5z"/></svg>') no-repeat;
+// background-position: right 10px center;
+// background-size: 12px;
+// cursor: pointer;
+// }
+// /* Vendor select options */
+// form label select[name="vendor"] option {
+// padding: 12px;
+// background-color: #fff;
+// }

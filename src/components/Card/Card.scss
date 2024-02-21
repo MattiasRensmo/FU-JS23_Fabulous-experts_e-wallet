@@ -1,9 +1,11 @@
 @use './../../sass/abstracts/' as *;
 
 .card {
-  max-width: fit-content;
+  min-width: fit-content;
   // border: 2px solid yellowgreen;
   border-radius: 0.5rem;
+  max-width: 320px;
+  aspect-ratio: 3/2;
   padding: 1rem;
   margin: 1rem;
   background: $grey;
@@ -97,8 +99,4 @@
   width: 100%;
   height: 200px;
   border-radius: 0.4rem;
-}
-
-.card-list-wrap {
-  height: 22rem;
 }
