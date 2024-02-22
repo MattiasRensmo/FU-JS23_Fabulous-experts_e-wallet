@@ -1,3 +1,11 @@
+Projekt gjort av: Mattias, Sandra, Marcus och Yousef
+
+
+---
+
+
+### TODO
+
 Allmän design för alla komponenter 🆕
 
 ✅ React router - _Mattias + Sandra_
@@ -33,7 +41,7 @@ Knapp - återanvända?
 
 ---
 
-![E-Wallet](poster.png)
+## Uppgiften
 
 # E-wallet
 
