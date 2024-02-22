@@ -19,8 +19,6 @@ const Home = () => {
   }
 
   const handleChangeActive = (activeCard: CreditCard) => {
-    console.log(activeCard)
-
     const NewCards = cards?.map((card) => {
       if (card.cardNum === activeCard.cardNum) {
         return { ...card, active: true }
@@ -37,9 +35,18 @@ const Home = () => {
       <main>
         <h1 className="title title__e-wallet">E-WALLET</h1>
         <ActiveContainer cards={cards} />
-        <button className="Delete__Btn" onClick={deleteCard}>
-          Delete card
-        </button>
+        {cards && cards?.find((card) => card.active) && (
+          <button
+            className="helper-text"
+            style={{
+              padding: '1rem',
+              alignSelf: 'end',
+              transform: 'translateY(-2.8rem)',
+            }}
+            onClick={deleteCard}>
+            Delete card
+          </button>
+        )}
 
         <StackCard cards={cards} onChangeActive={handleChangeActive} />
         <button className="button button__new-card">

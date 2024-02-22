@@ -41,7 +41,7 @@ export function AddCard() {
   }
 
   const handleInputChange = ({ number, name, month, year, cvc }: any) => {
-    console.log(number)
+    setFormError('')
     setNewCardInfo({
       ...cardNewInfo,
       cardNum: number,
@@ -56,29 +56,38 @@ export function AddCard() {
 
   const cards: CreditCard[] | undefined = getLocalItem()
 
+  const [formError, setFormError] = useState('')
+
   const handleSaveNewCard = () => {
-    //TODO: Split checking to egen funktion - så vi kan kolla medan vi skriver o visa för användaren. Och kolla separat när vi klickar på knappen
-    console.log(cardNewInfo)
     //cardNum ska va 16 siffror o inget annat
-    if (!cardNewInfo.cardNum?.match(/\d{16}/g)) return 'wrong number of digits'
+    if (!cardNewInfo.cardNum?.match(/\d{16}/g))
+      return setFormError('Wrong number of digits')
 
     //Kortet får inte redan finnas
     if (cards?.filter((card) => card.cardNum === cardNewInfo.cardNum).length)
-      return 'Card already exists'
+      return setFormError('Card already exists')
 
     //HolderName från inte vara tomt & det måste finnas ett mellanslag mellan bokstäver
     if (!cardNewInfo.holderName?.match(/\w{3}/g))
-      return 'Du måste fylla i ett namn'
+      return setFormError('You need to fill in your name')
+
     //validMonth måste va två siffror (som en sträng)
     if (!cardNewInfo.validMonth?.match(/^\d\d$/g))
-      return 'Du måste fylla i en månad'
+      return setFormError('You need to fill in a valid month')
+
     //validYeas måste va två siffror som sträng
     if (!cardNewInfo.validYear?.match(/^\d\d$/g))
-      return 'Du måste fylla i ett år'
+      return setFormError('You need to fill in a valid year')
+
     //ccv måste va tre siffror
-    if (!cardNewInfo.cvc?.match(/^\d\d\d$/g)) return 'Du måste fylla i CCV'
+    if (!cardNewInfo.cvc?.match(/^\d\d\d$/g))
+      return setFormError('You need to fill in CCV')
+
     //vendor ska inte vara undefined
-    if (cardNewInfo.vendor === undefined) return 'Du måste välja en tillverkare'
+    if (cardNewInfo.vendor === undefined)
+      return setFormError('You need to chose a card vendor')
+
+    //NO errors
     cards ? setLocalItem([...cards, cardNewInfo]) : setLocalItem([cardNewInfo])
     navigate('/')
     return 'allt funkade'
@@ -86,7 +95,6 @@ export function AddCard() {
 
   return (
     <div className="add-card__container">
-      {/* FIXME {handleSaveNewCard()} */}
       <div className="add-card">
         <div className="add-card__title-box">
           {/* Arrow-button 'go back' */}
@@ -117,6 +125,11 @@ export function AddCard() {
         />
 
         {/* 'Add card' button */}
+        <p
+          className="helper-text"
+          style={{ margin: '1rem 0 -1rem', color: 'red' }}>
+          {formError}
+        </p>
         <button className="button button__add-card" onClick={handleSaveNewCard}>
           ADD CARD
         </button>

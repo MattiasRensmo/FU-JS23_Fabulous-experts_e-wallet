@@ -38,7 +38,6 @@ const Form = ({ onInputChange }: Props) => {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     const noDigits = value.replace(/[^a-zåäöA-ZÅÄÖ\s]/g, '').substring(0, 30)
-    //FIXME: Bara ett mellanslag o formatering med ett bidesstreck
     setFormData((pre) => ({ ...pre, name: noDigits }))
   }
 
