@@ -1,11 +1,10 @@
 @use './../../sass/abstracts/' as *;
 
 // TODO: Fixa så kortnummret är rätt storlek & att namnet radbryter omd et blir för stort
-
 .card {
-  min-width: fit-content;
+  // min-width: fit-content;
   border-radius: 0.5rem;
-  max-width: 320px;
+  width: 380px;
   aspect-ratio: 3/2;
   margin-bottom: 3rem;
   padding: 1rem;
@@ -13,6 +12,10 @@
   color: #000;
   text-transform: uppercase;
   box-shadow: 0px 0px 16px rgb(0 0 0 / 22%);
+
+  font-family: 'PT Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
 
   // TODO: Bevel effect
   // text-shadow: 0.5px 0.5px rgba(255, 255, 255, 0.536), -0.5px -0.5px rgba(0, 0, 0, 0.548);
@@ -46,17 +49,21 @@
       opacity: 0.8;
     }
   }
+
   &__num {
-    margin: 1rem 0;
-    font-size: 1.5rem;
+    margin: 2rem 0 2rem;
+    font-size: 1.6rem;
     letter-spacing: 0.1em;
     text-align: center;
+    height: 2rem;
   }
   &__btm {
     display: flex;
     justify-content: space-between;
 
     &__item {
+      max-width: 250px;
+      word-break: break-all;
       &__heading {
         margin: 0;
         font-size: 12px;

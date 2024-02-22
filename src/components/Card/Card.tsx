@@ -14,7 +14,9 @@ function groupByFour(num: string) {
 export const Card = ({ cardInfo }: Props) => {
   return (
     <article
-      className={cardInfo.vendor ? `card card--${cardInfo.vendor}` : `card`}>
+      className={
+        cardInfo.vendor ? `card card--${cardInfo.vendor}` : `card card--none`
+      }>
       <section className="card__top">
         <img src={chipBlip} alt="Credit card chip" />{' '}
         <div className="card__top__logo">

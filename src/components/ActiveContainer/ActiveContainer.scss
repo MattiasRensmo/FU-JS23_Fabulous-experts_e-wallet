@@ -1,3 +1,13 @@
-.activeContainer .card {
-  margin-top: 0;
+@use './../../sass/abstracts/' as *;
+
+.activeContainer {
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .card {
+    margin-top: 0;
+  }
 }

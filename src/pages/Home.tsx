@@ -37,7 +37,14 @@ const Home = () => {
       <main>
         <h1 className="title title__e-wallet">E-WALLET</h1>
         <ActiveContainer cards={cards} />
-        <button className="" onClick={deleteCard}>
+        <button
+          className="helper-text helper-text__title"
+          style={{
+            padding: '1rem',
+            alignSelf: 'end',
+            transform: 'translateY(-2.8rem)',
+          }}
+          onClick={deleteCard}>
           Delete card
         </button>
 
