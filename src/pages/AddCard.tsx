@@ -112,44 +112,42 @@ export function AddCard() {
   }
 
   return (
-    <div className="add-card-container">
+    <div className="add-card__container">
       {/* {handleSaveNewCard()} */}
-      <div className="add-card">
-        <div className="add-card__title-box">
-          {/* Arrow-button 'go back' */}
-          <button className="button__go-back">
-            <Link className="button__go-back-text" to="/">
-              ←
-            </Link>
-          </button>
-
-          {/* Title */}
-          <h1 className="title title__add-card">ADD A NEW BANK CARD</h1>
-        </div>
-
-        {/* New card */}
-        <p className="helper-text helper-text__title">NEW CARD</p>
-        <Card cardInfo={cardNewInfo} />
-
-        {/* Input for info */}
-        <Form onInputChange={handleInputChange} />
-
-        {/* Select drop-down menu */}
-        <p className="helper-text">VENDOR</p>
-        <SelectBox
-          className="add-card__vendor-select-box"
-          options={options}
-          value={value}
-          onChange={onChange}
-        />
-
-        {/* 'Add card' button */}
-        <button className="button button__add-card" onClick={handleSaveNewCard}>
-          ADD CARD
+      <div className="add-card__title-box">
+        
+        {/* Arrow-button 'go back' */}
+        <button className="button__go-back">
+          <Link className="button__go-back-text" to="/">
+            ←
+          </Link>
         </button>
+
+        {/* Title */}
+        <h1 className="title title__add-card">ADD A NEW BANK CARD</h1>
       </div>
-    </div>
-  )
-}
+
+      {/* New card */}
+      <p className="helper-text helper-text__title">NEW CARD</p>
+      <Card cardInfo={cardNewInfo} />
+
+      {/* Input for info */}
+      <Form onInputChange={handleInputChange} />
+
+      {/* Select drop-down menu */}
+      <p className="helper-text">VENDOR</p>
+      <SelectBox
+        className="add-card__vendor-select-box input__container"
+        options={options}
+        value={value}
+        onChange={onChange}
+      />
+
+      {/* 'Add card' button */}
+      <button className="button button__add-card" onClick={handleSaveNewCard}>
+        ADD CARD
+      </button>
+  </div>
+)}
 
 export default AddCard
