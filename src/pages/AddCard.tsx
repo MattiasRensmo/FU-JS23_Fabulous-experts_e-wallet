@@ -112,11 +112,11 @@ export function AddCard() {
         <Form onInputChange={handleInputChange} />
 
         {/* Select drop-down menu */}
-        <p className="helper-text">VENDOR</p>
+        <p className="helper-text helper-text__vendor">VENDOR</p>
         <SelectBox
-          className="add-card__vendor-select-box"
+          className="add-card__vendor-select-box input__container"
           options={options}
-          value=""
+          value={value}
           onChange={onChange}
         />
 

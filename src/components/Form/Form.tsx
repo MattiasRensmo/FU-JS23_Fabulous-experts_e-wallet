@@ -145,6 +145,7 @@ const Form = ({ onInputChange }: Props) => {
         <label>
           <span className='helper-text'>CARD NUMBER</span>
           <input
+            className='input__container'
             type="text"
             name="number"
             value={formatNumber()}
@@ -154,6 +155,7 @@ const Form = ({ onInputChange }: Props) => {
         <label>
           <span className='helper-text'>CARDHOLDER NAME</span>
           <input
+            className='input__container'
             type="text"
             name="name"
             value={formData.name}
@@ -162,7 +164,8 @@ const Form = ({ onInputChange }: Props) => {
         </label>
         <label>
           <span className='helper-text'>VALID THRU</span>
-          <input
+          <input 
+            className='input__container input__container__short'
             type="text"
             name="expiry"
             value={formatExpiry()}
@@ -172,6 +175,7 @@ const Form = ({ onInputChange }: Props) => {
         <label>
           <span className='helper-text'>CCV</span>
           <input
+            className='input__container input__container__short'
             type="text"
             name="cvc"
             value={formData.cvc}

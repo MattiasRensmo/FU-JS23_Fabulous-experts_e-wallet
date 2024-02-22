@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(237, 237, 237);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -9,7 +13,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(237, 237, 237);
+  background-color: white;
   border-radius: 6px;
   width: 425px;
   padding: 20px;
