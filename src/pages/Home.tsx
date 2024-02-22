@@ -33,7 +33,7 @@ const Home = () => {
   }
 
   return (
-    <div className="add-card-container">
+    <div className="add-card__container">
       <main>
         <h1 className="title title__e-wallet">E-WALLET</h1>
         <ActiveContainer cards={cards} />

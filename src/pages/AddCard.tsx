@@ -89,7 +89,7 @@ export function AddCard() {
   }
 
   return (
-    <div className="add-card-container">
+    <div className="add-card__container">
       {/* FIXME {handleSaveNewCard()} */}
       <div className="add-card">
         <div className="add-card__title-box">

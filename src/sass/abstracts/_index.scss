@@ -44,6 +44,16 @@
     }
 }
 
+.add-card__container {
+    display: flex;
+    justify-content: center;
+    border-radius: 6px;
+    width: 425px;
+    padding: 20px;
+    margin: 1rem 0 1rem 0;
+    box-shadow: 0px 0px 16px rgb(0 0 0 / 22%);
+}
+
 .button {
     width: 382px;
     height: 80px;
@@ -85,7 +95,7 @@
         height: 3rem;
         border-radius: 50%;
         border: 0;
-        margin: 1rem 0 0 1rem;
+        margin: -1rem 0 0 1rem;
         background-color: rgba(175, 175, 175, 0.257);
     }
 
