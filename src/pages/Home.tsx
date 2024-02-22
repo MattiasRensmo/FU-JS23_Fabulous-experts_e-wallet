@@ -32,20 +32,39 @@ const Home = () => {
   }
 
   /* delete button */
-  const deletecard = (): void => {
-    // Find the index of the active card
-    const activeCardIndex: number = cards.findIndex(
-      (card: CreditCard) => card.active
-    )
+  const deleteCard = (): void => {
+    const newC = cards?.filter((card) => !card.active)
+    setCards(newC)
+    setLocalItem(newC)
 
-    // If no active card is found, do nothing
-    if (activeCardIndex === -1) return
+    // // Find the index of the active card
+    // const activeCardIndex: number = cards.findIndex(
+    //   (card: CreditCard) => card.active
+    // )
 
-    // Filter out the active card and set the new cards array
-    const newCards: CreditCard[] = cards.filter(
-      (_: CreditCard, index: number) => index !== activeCardIndex
-    )
-    setCards(newCards)
+    // // If no active card is found, do nothing
+    // if (activeCardIndex === -1) return
+
+    // // Filter out the active card and set the new cards array
+    // const newCards: CreditCard[] = cards.filter(
+    //   (_: CreditCard, index: number) => index !== activeCardIndex
+    // )
+    // setCards(newCards)
+    // setLocalItem(newCards)
+  }
+
+  const handleChangeActive = (activeCard: CreditCard) => {
+    console.log(activeCard)
+
+    const NewCards = cards?.map((card) => {
+      if (card.cardNum === activeCard.cardNum) {
+        return { ...card, active: true }
+      } else {
+        return { ...card, active: false }
+      }
+    })
+    setCards(NewCards)
+    setLocalItem(NewCards)
   }
 
   return (
@@ -55,10 +74,10 @@ const Home = () => {
         <button onClick={handleSetClick}>
           Skapa nytt kort i local storage med testdata
         </button>
-        <button onClick={deletecard}>delete</button>
+        <button onClick={deleteCard}>delete</button>
         <ActiveContainer cards={cards} />
 
-        <StackCard cards={cards} onClick={undefined} />
+        <StackCard cards={cards} onChangeActive={handleChangeActive} />
         <button className="button button__new-card">
           <Link className="button__text" to="/addcard">
             ADD A NEW CARD
