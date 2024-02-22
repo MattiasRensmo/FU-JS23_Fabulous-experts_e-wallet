@@ -110,7 +110,7 @@ export function AddCard() {
         {/* Select drop-down menu */}
         <p className="helper-text helper-text__vendor">VENDOR</p>
         <SelectBox
-          className="add-card__vendor-select-box input__container"
+          className="add-card__vendor-select-box "
           options={options}
           value={cardNewInfo.vendor || ''}
           onChange={onChange}
