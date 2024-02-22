@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
 /* Form container */
-form {
+.form-container {
+  width: 382px;
   display: grid;
   grid-template-areas:
     'number number'
@@ -7,49 +10,21 @@ form {
     'expiry cvc'
     'vendor vendor'
     'submit submit';
-  gap: 10px;
-  max-width: 600px;
-  padding: 32px;
-  border-radius: 12px;
-
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(5, auto);
+  gap: 20px;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  color: #333;
-  font-weight: 500;
-  text-align: left;
-  width: 100%;
-}
-
-label > span {
-  font-size: 16px;
-}
-
-input[type='text'],
-select {
-  padding: 12px;
-  margin-top: 4px;
-  border: 1px solid #bdbdbd;
+.input__container {
+  height: 56px;
   border-radius: 8px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  font-size: 16px;
-}
-
-button[type='submit'] {
-  grid-area: submit;
-  padding: 16px 24px;
-  background-color: #007bff;
-  color: #ffffff;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-button[type='submit']:hover {
-  background-color: #0056b3;
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  width: 382px;
+  padding-left: 20px;
+  &__short {
+    width: 175px;
+  }
 }
 
 form > label:nth-child(1) {
