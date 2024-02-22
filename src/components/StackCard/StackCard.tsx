@@ -10,7 +10,7 @@ interface Props {
 }
 
 
-const StackCard:React.FC<Props> = ({onClick, cards }: Props) => {
+const StackCard:React.FC<Props> = ({/*  */ cards }: Props) => {
   // EN funktion som bestämmer vilket kort som ska va aktivt o gör alla andra kort inaktiva
 
 
@@ -34,7 +34,7 @@ const StackCard:React.FC<Props> = ({onClick, cards }: Props) => {
     <div className="card-list-wrap">
       {
       cards.map((card,index) => (
-        <div onClick={() => onClick(card.cardNum)} className="card-stack stacked-card" key={index}>
+        <div /* onClick={() => onClick(card.cardNum)} */ className="card-stack stacked-card" key={index}>
 
 
           <Card cardInfo={card}></Card>

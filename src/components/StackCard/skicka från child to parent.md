@@ -23,7 +23,8 @@ export default ActiveContainer
 import ActiveContainer from '../components/ActiveContainer/ActiveContainer'
 
 const Home = () => {
-  const handleSelectItem = (item: string) => console.log(item) //setState
+  const handleSelectItem = (item: string) => console.log(item) 
+  //setState
 
   return (
     <main>

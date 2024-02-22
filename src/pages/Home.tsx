@@ -33,22 +33,33 @@ const Home = () => {
 
   }
 
-
-
-/* delete button */
+ 
+/* 
   const deletecard = (): void => {
     // Find the index of the active card
     const activeCardIndex: number = cards.findIndex((card: CreditCard) => card.active);
-
-
+    
     // If no active card is found, do nothing
     if (activeCardIndex === -1) return;
-
+    
     // Filter out the active card and set the new cards array
-    const newCards: CreditCard[] = cards.filter((_: CreditCard, index: number) => index !== activeCardIndex);
+    const newCards: CreditCard[] = cards.filter((_, index: number) => index !== activeCardIndex);
     setCards(newCards);
   };
+   */
 
+  
+  const deletecard = (): void => {
+    // Find the index of the active card
+    const activeCardIndex: number = cards.findIndex((card: CreditCard) => card.active);
+    
+    // If no active card is found, do nothing
+    if (activeCardIndex === -1) return;
+    
+    // Remove the active card from the cards array and set the new cards array
+    const newCards: CreditCard[] = [...cards.slice(0, activeCardIndex), ...cards.slice(activeCardIndex + 1)];
+    setCards(newCards);
+  }; 
 
 
 
