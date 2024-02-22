@@ -116,7 +116,7 @@ export function AddCard() {
         <SelectBox
           className="add-card__vendor-select-box input__container"
           options={options}
-          value={value}
+          value={cardNewInfo.vendor || ''}
           onChange={onChange}
         />
 
