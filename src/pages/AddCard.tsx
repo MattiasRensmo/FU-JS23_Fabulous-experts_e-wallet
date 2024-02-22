@@ -6,37 +6,23 @@ import Form from '../components/Form/Form'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 // Vendor names
-const vendors = ['BITCOIN INC', 'NINJA BANK', 'BLOCK CHAIN INC', 'EVIL CORP']
-
-// Type definition for 'Vendor'
-type Vendor = 'BITCOIN INC' | 'NINJA BANK' | 'BLOCK CHAIN INC' | 'EVIL CORP'
-
-// The keys=(vendor names) and their objects with properties for -> card background color | vendor logo
-const vendorColors: Record<Vendor, { name: string }> = {
-  'BITCOIN INC': {
-    name: 'bitcoin',
-  },
-  'NINJA BANK': {
-    name: 'ninja',
-  },
-  'BLOCK CHAIN INC': {
-    name: 'chain',
-  },
-  'EVIL CORP': {
-    name: 'evil',
-  },
-}
+const vendors = [
+  { label: 'BITCOIN INC', name: 'bitcoin' },
+  { label: 'NINJA BANK', name: 'ninja' },
+  { label: 'BLOCK CHAIN INC', name: 'chain' },
+  { label: 'EVIL CORP', name: 'evil' },
+]
 
 // Drop-down menu function to choose vendor
 export function AddCard() {
   const options: SelectOption[] = [
     { label: 'Select...', value: '', disabled: true },
-    ...vendors.map((vendor) => ({ label: vendor, value: vendor })),
+    ...vendors.map((vendor) => ({ label: vendor.label, value: vendor.name })),
   ]
   const navigate = useNavigate()
   // States for -> value from drop-down menu | properties from chosen vendor
-  const [value, setValue] = useState('')
-  const [cardInfo, setCardInfo] = useState({ name: '' })
+  // const [value, setValue] = useState('')
+  // const [cardInfo, setCardInfo] = useState({ name: '' })
   const [cardNewInfo, setNewCardInfo] = useState<CreditCard>({
     cardNum: undefined,
     holderName: '',
@@ -47,24 +33,14 @@ export function AddCard() {
     active: false,
   })
 
-  // const cardTest: CreditCard = {
-  //   cardNum: '1234000012340000',
-  //   holderName: 'Test Testsson',
-  //   validYear: '24',
-  //   validMonth: '2',
-  //   vendor: 'evil',
-  //   cvc: '000',
-  //   active: true,
-  // }
-
   // Function runs when user selects a vendor from drop-down menu. -> Updates both selected value | the card info=(vendor properties)
   const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value as Vendor
-    setValue(value)
+    const value = event.target.value as CreditCard['vendor']
+    // setValue(value)
     // setCardInfo(vendorColors[value])
     setNewCardInfo({
       ...cardNewInfo,
-      vendor: vendorColors[value].name,
+      vendor: value,
     })
   }
 
@@ -81,12 +57,13 @@ export function AddCard() {
   }
 
   const { setLocalItem, getLocalItem } = useLocalStorage('cards')
-  const [cards, setCards] = useState<CreditCard[] | undefined>(getLocalItem())
+  // const [cards, setCards] = useState<CreditCard[] | undefined>(getLocalItem())
+  const cards: CreditCard[] | undefined = getLocalItem()
 
   const handleSaveNewCard = () => {
     //TODO: Split checking to egen funktion - så vi kan kolla medan vi skriver o visa för användaren. Och kolla separat när vi klickar på knappen
     console.log(cardNewInfo)
-    //cardnum ska va 16 siffror o inget annat
+    //cardNum ska va 16 siffror o inget annat
     if (!cardNewInfo.cardNum?.match(/\d{16}/g)) return 'wrong number of digits'
 
     //Kortet får inte redan finnas
@@ -106,48 +83,50 @@ export function AddCard() {
     if (!cardNewInfo.cvc?.match(/^\d\d\d$/g)) return 'Du måste fylla i CCV'
     //vendor ska inte vara undefined
     if (cardNewInfo.vendor === undefined) return 'Du måste välja en tillverkare'
-    setLocalItem([...cards, cardNewInfo])
+    cards ? setLocalItem([...cards, cardNewInfo]) : setLocalItem([cardNewInfo])
     navigate('/')
     return 'allt funkade'
   }
 
   return (
-    <div className="add-card__container">
-      {/* {handleSaveNewCard()} */}
-      <div className="add-card__title-box">
-        
-        {/* Arrow-button 'go back' */}
-        <button className="button__go-back">
-          <Link className="button__go-back-text" to="/">
-            ←
-          </Link>
+    <div className="add-card-container">
+      {/* FIXME {handleSaveNewCard()} */}
+      <div className="add-card">
+        <div className="add-card__title-box">
+          {/* Arrow-button 'go back' */}
+          <button className="button__go-back">
+            <Link className="button__go-back-text" to="/">
+              ←
+            </Link>
+          </button>
+
+          {/* Title */}
+          <h1 className="title title__add-card">ADD A NEW BANK CARD</h1>
+        </div>
+
+        {/* New card */}
+        <p className="helper-text helper-text__title">NEW CARD</p>
+        <Card cardInfo={cardNewInfo} />
+
+        {/* Input for info */}
+        <Form onInputChange={handleInputChange} />
+
+        {/* Select drop-down menu */}
+        <p className="helper-text">VENDOR</p>
+        <SelectBox
+          className="add-card__vendor-select-box"
+          options={options}
+          value=""
+          onChange={onChange}
+        />
+
+        {/* 'Add card' button */}
+        <button className="button button__add-card" onClick={handleSaveNewCard}>
+          ADD CARD
         </button>
-
-        {/* Title */}
-        <h1 className="title title__add-card">ADD A NEW BANK CARD</h1>
       </div>
-
-      {/* New card */}
-      <p className="helper-text helper-text__title">NEW CARD</p>
-      <Card cardInfo={cardNewInfo} />
-
-      {/* Input for info */}
-      <Form onInputChange={handleInputChange} />
-
-      {/* Select drop-down menu */}
-      <p className="helper-text">VENDOR</p>
-      <SelectBox
-        className="add-card__vendor-select-box input__container"
-        options={options}
-        value={value}
-        onChange={onChange}
-      />
-
-      {/* 'Add card' button */}
-      <button className="button button__add-card" onClick={handleSaveNewCard}>
-        ADD CARD
-      </button>
-  </div>
-)}
+    </div>
+  )
+}
 
 export default AddCard
