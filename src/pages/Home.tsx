@@ -37,7 +37,7 @@ const Home = () => {
       <main>
         <h1 className="title title__e-wallet">E-WALLET</h1>
         <ActiveContainer cards={cards} />
-        <button className="" onClick={deleteCard}>
+        <button className="Delete__Btn" onClick={deleteCard}>
           Delete card
         </button>
 
