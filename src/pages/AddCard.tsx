@@ -47,6 +47,7 @@ export function AddCard() {
   // ** **
 
   return (
+    <div className="add-card-container">
     <div className="add-card">
       <div className="add-card__title-box">
         <button className="button__go-back">
@@ -61,6 +62,7 @@ export function AddCard() {
       <div className="just-test-card" style={{ backgroundColor: cardColor }}>
         // Card content goes here
       </div>
+      <Form />
       <p className="helper-text">VENDOR</p>
       <SelectBox
         className="add-card__vendor-select-box"
@@ -69,10 +71,8 @@ export function AddCard() {
         onChange={onChange}
       />
       {value && <p>Selected value: {value}</p>}
-
-      <p>FORM</p>
-      <Form />
       <button className="button button__add-card">ADD CARD</button>
+    </div>
     </div>
   )
 }

@@ -34,6 +34,7 @@ const Home = () => {
   }
 
   return (
+    <div className="add-card-container">
     <main>
       <h1 className='title title__e-wallet' >E-WALLET</h1>
       <button onClick={handleSetClick}>Skapa nytt kort i local storage med testdata</button>
@@ -44,6 +45,7 @@ const Home = () => {
         <Link className='button__text' to="/addcard">ADD A NEW CARD</Link>
       </button>
     </main>
+    </div>
   )
 }
 
