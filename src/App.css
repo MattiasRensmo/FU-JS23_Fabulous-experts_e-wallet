@@ -4,22 +4,14 @@ main {
   align-items: center;
 }
 
-.add-card-container {
+.add-card__container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgb(237, 237, 237);
-  border: 1px solid rgba(0, 0, 0, 0.513);
   border-radius: 6px;
-  width: 500px;
+  width: 425px;
   padding: 20px;
+  margin: 1rem 0 1rem 0;
 }
-
-/* .helperText {
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 0.6em;
-  color: rgba(34, 34, 34, 0.6);
-} */
