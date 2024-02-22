@@ -4,6 +4,10 @@ import ActiveContainer from '../components/ActiveContainer/ActiveContainer'
 // import { Card } from '../components/Card/Card'
 import StackCard from '../components/StackCard/StackCard'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+/* import { Card } from '../components/Card/Card' */
+import '../components/Card/Card'
+
+
 
 const cardTest: CreditCard = {
   cardNum: 1234000012340000,
@@ -28,10 +32,27 @@ const Home = () => {
     setCards(() => getLocalItem())
 
   }
-  const deletecard = () => {
-    setLocalItem([])
-    setCards([])
-  }
+
+
+
+/* delete button */
+  const deletecard = (): void => {
+    // Find the index of the active card
+    const activeCardIndex: number = cards.findIndex((card: CreditCard) => card.active);
+
+
+    // If no active card is found, do nothing
+    if (activeCardIndex === -1) return;
+
+    // Filter out the active card and set the new cards array
+    const newCards: CreditCard[] = cards.filter((_: CreditCard, index: number) => index !== activeCardIndex);
+    setCards(newCards);
+  };
+
+
+
+
+
 
   return (
     <div className="add-card-container">
@@ -40,7 +61,8 @@ const Home = () => {
       <button onClick={handleSetClick}>Skapa nytt kort i local storage med testdata</button>
       <button onClick={deletecard}>delete</button>
       <ActiveContainer cards={cards} />
-      <StackCard cards={cards} />
+
+      <StackCard cards={cards} onClick={undefined} />
       <button className='button button__new-card'>
         <Link className='button__text' to="/addcard">ADD A NEW CARD</Link>
       </button>
