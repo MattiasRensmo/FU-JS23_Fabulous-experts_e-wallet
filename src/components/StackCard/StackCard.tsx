@@ -7,7 +7,6 @@ interface Props {
 }
 
 const StackCard = ({ onChangeActive, cards }: Props) => {
-  // EN funktion som bestämmer vilket kort som ska va aktivt o gör alla andra kort inaktiva
 
   if (!cards) return <></>
   if (!cards.length) return <></>

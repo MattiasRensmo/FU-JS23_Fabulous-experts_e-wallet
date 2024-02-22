@@ -33,18 +33,11 @@ const Home = () => {
   }
 
   return (
-    <div className="add-card-container">
+    <div className="add-card__container">
       <main>
         <h1 className="title title__e-wallet">E-WALLET</h1>
         <ActiveContainer cards={cards} />
-        <button
-          className="helper-text helper-text__title"
-          style={{
-            padding: '1rem',
-            alignSelf: 'end',
-            transform: 'translateY(-2.8rem)',
-          }}
-          onClick={deleteCard}>
+        <button className="Delete__Btn" onClick={deleteCard}>
           Delete card
         </button>
 

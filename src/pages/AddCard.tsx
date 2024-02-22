@@ -20,9 +20,7 @@ export function AddCard() {
     ...vendors.map((vendor) => ({ label: vendor.label, value: vendor.name })),
   ]
   const navigate = useNavigate()
-  // States for -> value from drop-down menu | properties from chosen vendor
-  // const [value, setValue] = useState('')
-  // const [cardInfo, setCardInfo] = useState({ name: '' })
+
   const [cardNewInfo, setNewCardInfo] = useState<CreditCard>({
     cardNum: undefined,
     holderName: '',
@@ -33,11 +31,9 @@ export function AddCard() {
     active: false,
   })
 
-  // Function runs when user selects a vendor from drop-down menu. -> Updates both selected value | the card info=(vendor properties)
+  // Function runs when user selects a vendor from drop-down menu
   const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value as CreditCard['vendor']
-    // setValue(value)
-    // setCardInfo(vendorColors[value])
     setNewCardInfo({
       ...cardNewInfo,
       vendor: value,
@@ -57,7 +53,7 @@ export function AddCard() {
   }
 
   const { setLocalItem, getLocalItem } = useLocalStorage('cards')
-  // const [cards, setCards] = useState<CreditCard[] | undefined>(getLocalItem())
+
   const cards: CreditCard[] | undefined = getLocalItem()
 
   const handleSaveNewCard = () => {
@@ -89,7 +85,7 @@ export function AddCard() {
   }
 
   return (
-    <div className="add-card-container">
+    <div className="add-card__container">
       {/* FIXME {handleSaveNewCard()} */}
       <div className="add-card">
         <div className="add-card__title-box">

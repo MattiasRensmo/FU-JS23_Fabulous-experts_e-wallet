@@ -2,15 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './../../interfaces/CreditCard'
 import './Form.scss'
 
-// interface CreditCard {
-//   cardNum: number;
-//   holderName: string;
-//   validYear: number;
-//   validMonth: number;
-//   vendor: 'bitcoin' | 'chain' | 'evil' | 'ninja' | undefined;
-//   active: boolean;
-// }
-
 interface FormData {
   number: string
   name: string
@@ -37,55 +28,6 @@ const Form = ({ onInputChange }: Props) => {
   useEffect(() => {
     onInputChange(formData)
   }, [formData])
-
-  // const [submittedData, setSubmittedData] = useState<CreditCard | null>(null)
-
-  // const handleInputChange = (
-  //   e:
-  //     | React.ChangeEvent<HTMLInputElement>
-  //     | React.ChangeEvent<HTMLSelectElement>
-  // ) => {
-  //   const { name, value } = e.target as HTMLInputElement | HTMLSelectElement
-  //   let formattedValue = value
-
-  //   if (name === 'number') {
-  //     // formattedValue = formattedValue.replace(/\D/g, '').substring(0, 16)
-  //     // formattedValue = formattedValue.replace(/(.{4})/g, '$1 ').trim()
-  //   } else if (name === 'name') {
-  //     // formattedValue = formattedValue
-  //     //   .replace(/[^a-zA-Z\s]/g, '')
-  //     //   .substring(0, 30)
-  //   } else if (name === 'expiry') {
-  //     // formattedValue = formattedValue.replace(/\D/g, '').substring(0, 4)
-  //     // if (formattedValue.length > 2) {
-  //     //   formattedValue = `${formattedValue.substring(
-  //     //     0,
-  //     //     2
-  //     //   )} / ${formattedValue.substring(2)}`
-  //     // }
-  //   } else if (name === 'cvc') {
-  //     formattedValue = formattedValue.replace(/\D/g, '').substring(0, 3)
-  //   }
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: formattedValue,
-  //   }))
-  // }
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
-  //   const [month, year] = formData.expiry.split('/').map(Number)
-  //   const creditCardData: CreditCard = {
-  //     cardNum: parseInt(formData.number.replace(/\s+/g, ''), 10),
-  //     holderName: formData.name,
-  //     validMonth: month,
-  //     validYear: year,
-  //     vendor: formData.vendor as 'bitcoin' | 'chain' | 'evil' | 'ninja',
-  //     active: formData.active,
-  //   }
-
-  //   setSubmittedData(creditCardData)
-  // }
 
   const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -128,19 +70,6 @@ const Form = ({ onInputChange }: Props) => {
 
   return (
     <div>
-      {/*       {submittedData && (
-        <div className="submitted-data">
-          <h2>Submitted Information:</h2>
-          <p>Card Number: {submittedData.cardNum}</p>
-          <p>Holder Name: {submittedData.holderName}</p>
-          <p>
-            Expiration Date: {submittedData.validMonth}/
-            {submittedData.validYear}
-          </p>
-          <p>Vendor: {submittedData.vendor}</p>
-          <p>Active: {submittedData.active ? 'Yes' : 'No'}</p>
-        </div>
-      )} */}
       <form className="form-container">
         <label>
           <span className='helper-text'>CARD NUMBER</span>
@@ -182,20 +111,6 @@ const Form = ({ onInputChange }: Props) => {
             onChange={handleCvc}
           />
         </label>
-        {/* <label>
-          <span>Vendor:</span>
-          <select
-            name="vendor"
-            value={formData.vendor}
-            onChange={handleInputChange}>
-            <option value="">Select Vendor</option>
-            <option value="bitcoin">Bitcoin</option>
-            <option value="chain">Chain</option>
-            <option value="evil">Evil</option>
-            <option value="ninja">Ninja</option>
-          </select>
-        </label>
-        <button type="submit">Submit</button> */}
       </form>
     </div>
   )
