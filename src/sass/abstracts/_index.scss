@@ -25,7 +25,6 @@
 }
 
 .helper-text {
-    width: 382px;
     height: 22px;
     margin: 0;
     font-family: "PT Mono", monospace;
@@ -39,19 +38,17 @@
         justify-content: center;
         margin: 0.5rem 0;
     }
-}
 
-.just-test-card {
-    height: 10rem;
-    width: 10rem;
-    background-color: #D0D0D0;
+    &__vendor {
+        width: 382px;
+    }
 }
 
 .button {
     width: 382px;
     height: 80px;
     border-radius: 8px;
-    margin-top: 3rem;  
+    margin-top: 2rem;  
 
     &__new-card {
         border: 1px solid rgba(0, 0, 0, 1);
@@ -99,9 +96,6 @@
         font-family: math;
     }
 }
-
-/** E Wallet **/
-
 
 /** Add Card **/
 .add-card {
