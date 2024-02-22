@@ -7,14 +7,13 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 /* import { Card } from '../components/Card/Card' */
 import '../components/Card/Card'
 
-
-
 const cardTest: CreditCard = {
-  cardNum: 1234000012340000,
+  cardNum: '1234000012340000',
   holderName: 'Test Testsson',
-  validYear: 24,
-  validMonth: 2,
+  validYear: '24',
+  validMonth: '2',
   vendor: 'bitcoin',
+  cvc: '000',
   active: true,
 }
 
@@ -30,43 +29,42 @@ const Home = () => {
 
     // Hämtar o visar det vi precis sparade.
     setCards(() => getLocalItem())
-
   }
 
-
-
-/* delete button */
+  /* delete button */
   const deletecard = (): void => {
     // Find the index of the active card
-    const activeCardIndex: number = cards.findIndex((card: CreditCard) => card.active);
-
+    const activeCardIndex: number = cards.findIndex(
+      (card: CreditCard) => card.active
+    )
 
     // If no active card is found, do nothing
-    if (activeCardIndex === -1) return;
+    if (activeCardIndex === -1) return
 
     // Filter out the active card and set the new cards array
-    const newCards: CreditCard[] = cards.filter((_: CreditCard, index: number) => index !== activeCardIndex);
-    setCards(newCards);
-  };
-
-
-
-
-
+    const newCards: CreditCard[] = cards.filter(
+      (_: CreditCard, index: number) => index !== activeCardIndex
+    )
+    setCards(newCards)
+  }
 
   return (
     <div className="add-card-container">
-    <main>
-      <h1 className='title title__e-wallet' >E-WALLET</h1>
-      <button onClick={handleSetClick}>Skapa nytt kort i local storage med testdata</button>
-      <button onClick={deletecard}>delete</button>
-      <ActiveContainer cards={cards} />
+      <main>
+        <h1 className="title title__e-wallet">E-WALLET</h1>
+        <button onClick={handleSetClick}>
+          Skapa nytt kort i local storage med testdata
+        </button>
+        <button onClick={deletecard}>delete</button>
+        <ActiveContainer cards={cards} />
 
-      <StackCard cards={cards} onClick={undefined} />
-      <button className='button button__new-card'>
-        <Link className='button__text' to="/addcard">ADD A NEW CARD</Link>
-      </button>
-    </main>
+        <StackCard cards={cards} onClick={undefined} />
+        <button className="button button__new-card">
+          <Link className="button__text" to="/addcard">
+            ADD A NEW CARD
+          </Link>
+        </button>
+      </main>
     </div>
   )
 }
